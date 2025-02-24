@@ -16,6 +16,7 @@ install(PROGRAMS
     ${EXAMPLES_DIR}/detect_filter1.py
     ${EXAMPLES_DIR}/detect_filter2.py
     ${EXAMPLES_DIR}/servo.py
+    ${EXAMPLES_DIR}/servo_old.py
     DESTINATION lib/${PROJECT_NAME}
 )
 

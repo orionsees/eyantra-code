@@ -24,9 +24,9 @@ class MyRobotDockingController(Node):
         self.callback_group = ReentrantCallbackGroup()
         self.get_logger().info("DOCKER SERVICE STARTED")
         
-        self.odom_sub = self.create_subscription(Odometry, 'odom', self.odometry_callback, 10)
+        self.odom_sub = self.create_subscription(Odometry, '/odometry/filtered', self.odometry_callback, 10)
         self.ultrasonic = self.create_subscription(Float32MultiArray, '/ultrasonic_sensor_std_float', self.ultrasonic_callback, 10)
-        self.imu_sub = self.create_subscription(Float32, 'orientation', self.imu_callback, 10) 
+        #self.imu_sub = self.create_subscription(Float32, 'orientation', self.imu_callback, 10) 
 
 
         self.cmd_vel_pub = self.create_publisher(Twist, 'cmd_vel', 10)
@@ -65,7 +65,7 @@ class MyRobotDockingController(Node):
         quaternion_array = msg.pose.pose.orientation
         orientation_list = [quaternion_array.x, quaternion_array.y, quaternion_array.z, quaternion_array.w]
         _, _, yaw = euler_from_quaternion(orientation_list)
-        #self.robot_pose[2] = yaw
+        self.robot_pose[2] = yaw
 
     def ultrasonic_callback(self, msg):
         self.usrleft_value= msg.data[4]
