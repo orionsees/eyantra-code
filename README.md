@@ -16,6 +16,8 @@ ros2 run ebot_nav2 duplicate_imu.py
 
 ros2 run ebot_nav2 reset_sensors.py
 
+ros2 run ebot_nav2 record_ebot.py
+
 ros2 run pymoveit2 detect.py
 
 ros2 run pymoveit2 detect_filter1.py

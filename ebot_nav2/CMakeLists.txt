@@ -67,6 +67,8 @@ install(
   scripts/reset_sensors.py
   scripts/vroom_without_arm.py
   scripts/callpayload.py
+  scripts/record_ebot.py
+  scripts/ComplementaryFilter.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
