@@ -1,0 +1,4 @@
+pre_dock_position:
+    - conveyor_1: [3.2, 1.9, 3.14]
+    - conveyor_2: [3.1, -1.15, 3.14]
+    - arm_pose: [3.0, -2.5, 3.14]
