@@ -93,7 +93,7 @@ class PassingControl(Node):
         self.twist_cmd_pub = self.create_publisher(TwistStamped, '/ServoCmdVel', 10)
 
     def net_wrench_cb(self, msg):
-        if self.current_step == 2 and msg.data > 75:
+        if self.current_step == 2 and msg.data > 57:
             self.get_logger().info(f"Net force {msg.data} exceeded threshold of 75 in step 2. Initiating grab and moving to next step.")
             result = self.grip_control.gripper_call(True)
             self.get_logger().info(f"The gripper status for {self.current_box} is {result}")

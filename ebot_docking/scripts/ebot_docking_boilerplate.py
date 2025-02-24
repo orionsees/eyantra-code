@@ -103,7 +103,7 @@ class MyRobotDockingController(Node):
 
             wt = self.ORIENTATION_P_GAIN*error_angular
             velocity_cmd.angular.z = wt
-            if abs(error_angular) <= self.ORIENTATION_THRESHOLD:
+            if abs(current_angle) >= 3.139:
                 if self.linear_dock is True:
                     self.state = 'APPROACH'
                 else:
