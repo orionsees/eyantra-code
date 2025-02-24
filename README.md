@@ -16,7 +16,7 @@ ros2 run ebot_nav2 duplicate_imu.py
 
 ros2 run ebot_nav2 reset_sensors.py
 
-ros2 run ebot_nav2 record_ebot.py
+ros2 run ebot_nav2 ComplementaryFilter.py
 
 ros2 run pymoveit2 detect.py
 
@@ -28,9 +28,10 @@ ros2 run pymoveit2 servo.py
 
 ros2 run ebot_docking ebot_docking_boilerplate.py
 
+ros2 run ebot_nav2 record_ebot.py
+
 ros2 run ebot_nav2 vroom.py
 
 ros2 run ebot_nav2 checkimu.py
 
 ros2 run ebot_nav2 calldock.py
-pull

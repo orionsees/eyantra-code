@@ -108,7 +108,7 @@ class EBotController(Node):
         self.payload_call = PayloadControl()
 
         self.eBot_Box = None
-        self.initialized = {0}
+        self.initialized = [0,0]
         self.coordinates = self.parse_yaml_file()
         self._reset_imu()
         self._reset_odom()
@@ -127,7 +127,7 @@ class EBotController(Node):
                 self.get_logger().info(f'/reset_imu response - success: {result.success}, message: {result.message}')
                 if result.success:
                     self.get_logger().info("Reset IMU service call succeeded. Exiting loop.")
-                    self.initialized.add(1)
+                    self.initialized[0] = 1
                     break
                 else:
                     self.get_logger().info("Reset IMU service call did not succeed. Retrying...")
@@ -149,7 +149,7 @@ class EBotController(Node):
                 self.get_logger().info(f'/reset_odom response - success: {result.success}, message: {result.message}')
                 if result.success:
                     self.get_logger().info("Reset Odom service call succeeded. Exiting loop.")
-                    self.initialized.add(1)
+                    self.initialized[1] = 1
                     break
                 else:
                     self.get_logger().info("Reset Odom service call did not succeed. Retrying...")
@@ -193,7 +193,7 @@ class EBotController(Node):
 
     def vroom(self, coordinates, pick_action, pass_action, box_action, dock_action):
         x, y, yaw = coordinates
-        if sum(self.initialized) != 2:
+        if self.initialized[0]+self.initialized[1] != 2:
             print(self.initialized)
             return
 
