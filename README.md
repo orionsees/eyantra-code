@@ -33,3 +33,4 @@ ros2 run ebot_nav2 vroom.py
 ros2 run ebot_nav2 checkimu.py
 
 ros2 run ebot_nav2 calldock.py
+pull
