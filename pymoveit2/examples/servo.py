@@ -183,10 +183,10 @@ class PassingControl(Node):
         self.current_box = str(selectBox[0])
         set_box_info = self.box_dict[self.current_box] 
         
-        #self.poses['leftdown'][0] = set_box_info[0]
-        #self.poses['leftdown'][1] = set_box_info[1]
-        #self.poses['rightdown'][0] = set_box_info[0]
-        #self.poses['rightdown'][1] = set_box_info[1]
+        self.poses['leftdown'][0] = set_box_info[0]
+        self.poses['leftdown'][1] = set_box_info[1]
+        self.poses['rightdown'][0] = set_box_info[0]
+        self.poses['rightdown'][1] = set_box_info[1]
 
         self.poses['box'] = set_box_info
 
