@@ -67,7 +67,7 @@ class RecordEbot(Node):
         self.robot_pose[10] = yaw
 
     def controller_loop(self):
-        print("Recording data...")
+        print(f"odom: {self.robot_pose[2]}, orientation: {self.robot_pose[10]}, /sensors/imu1: {self.robot_pose[9]}, /filtered: {self.robot_pose[5]}")
         filename = "ebotstat.csv"
         data = [self.robot_pose[0], self.robot_pose[1], self.robot_pose[2], self.robot_pose[3], self.robot_pose[4], self.robot_pose[5], self.robot_pose[6], self.robot_pose[7], self.robot_pose[8], self.robot_pose[9], self.robot_pose[10]]
         # Write current robot pose data to CSV file
