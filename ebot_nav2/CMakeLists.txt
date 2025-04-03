@@ -38,42 +38,24 @@ endif()
 
 install(
   DIRECTORY
-  launch
-  models
-  meshes
-  config
-  plugins
-  maps
-  params
-  rviz
+    launch
+    config
+    maps
+    params
+    rviz
+    scripts
   DESTINATION
     share/${PROJECT_NAME}/
 )
 
-
-install(DIRECTORY
-  scripts/pyarmor_runtime_000000
-  DESTINATION lib/${PROJECT_NAME}
-)
-
 install(
-  PROGRAMS
-  scripts/pose_detector.py
-  scripts/pf_pose_saver.py
-  scripts/duplicate_imu.py
-  scripts/vroom.py
-  scripts/calldock.py
-  scripts/checkimu.py
-  scripts/reset_sensors.py
-  scripts/vroom_without_arm.py
-  scripts/callpayload.py
-  scripts/record_ebot.py
-  scripts/ComplementaryFilter.py
-  DESTINATION lib/${PROJECT_NAME}
+PROGRAMS
+scripts/ebot_cmd.py
+scripts/checkimu.py
+scripts/publisher.py
+# Make sure your script is in the 'scripts' folder
+DESTINATION lib/${PROJECT_NAME}
 )
 
-install(PROGRAMS
-  DESTINATION lib/${PROJECT_NAME}
-)
 
 ament_package()

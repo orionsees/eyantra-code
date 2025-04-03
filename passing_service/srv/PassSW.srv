@@ -1,0 +1,6 @@
+bool signal
+bool drop
+---
+bool success
+string boxname
+string message

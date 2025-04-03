@@ -21,7 +21,7 @@ class MyRobotDockingController(Node):
         self.odom_sub = self.create_subscription(Odometry, 'odom', self.odometry_callback, 10)
         self.odom_sub2 = self.create_subscription(Odometry, '/odometry/filtered', self.odometry_callback2, 10)
         self.imu_sub = self.create_subscription(Float32, '/orientation', self.imu_callback, 10) 
-        self.imu_sub2 = self.create_subscription(Imu, '/sensors/imu1', self.imu_callback2, 10) 
+        self.imu_sub2 = self.create_subscription(Imu, '/imu', self.imu_callback2, 10) 
 
         self.controller_timer = self.create_timer(0.1, self.controller_loop)
 

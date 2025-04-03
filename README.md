@@ -1,37 +1,63 @@
-# Hardware: Logistic coBot (LB) for eYRC 2024-25
+# Logistic coBot (LB) theme for eYRC 2024-25
 
-rm -rf build install log eYantra24-25
 
-ros2 service call /dock_control ebot_docking/srv/DockSw "{linear_dock: False, orientation_dock: True, orientation: 0.0}"
 
-ros2 service call /pass_control ebot_docking/srv/DockSw "{startcmd: False, undocking: False}"
+# Task 1B
 
-ros2 run tf2_ros static_transform_publisher 3.2 1.9 0.0 0.0 0.0 3.14 odom conv1
+To Launch the gazebo-
 
-ros2 run tf2_ros static_transform_publisher 3.1 -1.15 0.0 0.0 0.0 3.14 odom conv2
 
-ros2 run tf2_ros static_transform_publisher 3.0 -2.5 0.0 0.0 0.0 3.14 odom arm
+```sh
+ros2 launch eyantra_warehouse task1b.launch.py
+```
+To launch moveit
 
-ros2 run ebot_nav2 duplicate_imu.py
+```sh
+ros2 launch ur_simulation_gazebo spawn_ur5_launch_moveit.launch.py 
+```
 
-ros2 run ebot_nav2 reset_sensors.py
+# Task 1C
 
-ros2 run ebot_nav2 ComplementaryFilter.py
+### To Launch the gazebo
 
-ros2 run pymoveit2 detect.py
+```sh
+ros2 launch eyantra_warehouse task1c.launch.py  
+```
 
-ros2 run pymoveit2 detect_filter1.py
+### To launch moveit
+```sh
+ros2 launch ur_simulation_gazebo spawn_ur5_launch_moveit.launch.py 
+```
 
-ros2 run pymoveit2 detect_filter2.py
+# Task 2a
 
-ros2 run pymoveit2 servo.py
+### To Launch the gazebo
 
-ros2 run ebot_docking ebot_docking_boilerplate.py
+```sh
+ros2 launch eyantra_warehouse task2a.launch.py  
+```
 
-ros2 run ebot_nav2 record_ebot.py
+### To launch moveit
+```sh
+ros2 launch ur_simulation_gazebo spawn_ur5_launch_moveit.launch.py 
+```
 
-ros2 run ebot_nav2 vroom.py
 
-ros2 run ebot_nav2 checkimu.py
+# Task 2B
 
-ros2 run ebot_nav2 calldock.py
+### To Launch the gazebo
+
+```sh
+ros2 launch ebot_description ebot_gazebo_task2b_launch.py
+```
+
+### To Launch the payload service
+
+```sh
+ros2 run ebot_description payload.py
+```
+
+### To launch rviz
+```sh
+ros2 launch ebot_nav2 ebot_bringup_launch.py 
+```

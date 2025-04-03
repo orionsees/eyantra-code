@@ -11,12 +11,10 @@ ament_python_install_package(pymoveit2)
 # Install examples
 set(EXAMPLES_DIR examples)
 install(PROGRAMS
-    ${EXAMPLES_DIR}/detect.py
-    ${EXAMPLES_DIR}/detect_csv.py
-    ${EXAMPLES_DIR}/detect_filter1.py
-    ${EXAMPLES_DIR}/detect_filter2.py
-    ${EXAMPLES_DIR}/servo.py
-    ${EXAMPLES_DIR}/servo_old.py
+    ${EXAMPLES_DIR}/ex_collision_object.py
+    ${EXAMPLES_DIR}/ex_joint_goal.py
+    ${EXAMPLES_DIR}/ex_pose_goal.py
+    ${EXAMPLES_DIR}/ex_servo.py
     DESTINATION lib/${PROJECT_NAME}
 )
 
